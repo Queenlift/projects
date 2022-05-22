@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Workout Generator</title>
+
+		<style>
+
+			/* Basic CSS comment */
+			body {
+				background: whitesmoke;
+				color: white;
+				width: 960px;
+				margin: 0 auto;
+				font-size: 30px;
+				color: green;
+				text-align: center;
+				font-family:  monospace;
+			}
+
+			h1 {
+				font-size: 60px ;
+				color: #333	;
+			}
+
+			h2 {
+				font-size: 40px ;
+				color: #333	;
+			}
+
+			p1 {
+				font-size: 30px ;
+				color: darkorange ;
+			}
+
+			p2 {
+				font-size: 25px ;
+				color: black ;
+			}
+
+		</style>
+
+		<script>
+			//exercise list
+			var majorExercises = {
+					Legs : ["Squats", "Lunges", "Split Squats", "Hip Thrusts"],
+					Back: ["Deadlifts", "Pullups", "Rows", "Lat Pulldowns"],
+					Chest:  ["Bench Press", "Flyes", "Machine Press", "Chest Dips"],
+					Shoulders: ["Overhead Press", "Lateral raises", "Arnold Press", "Rear Delt Flyes"]
+					};
+			
+			var minorExercises = {
+					Biceps : ["Bicep Curls", "Hammer Curls", "Preacher Curls", "Cable Curls"],
+					Triceps : ["Skullcrushers", "Cable Tricep Overhead Extensions", "Cable Pushdowns", "Dumbbell Overhead Extensions"],
+					Calves : ["Standing Calf Raises", "Calf Extension Machine", "Smith Machine Calf Raises", "Plate Elevated Calf Raises"],
+					Core : ["Palloff Press", "Crunches", "Russian Twists", "Cross Body Climbers"]
+					};
+
+			var getRandomInt = (max) => {
+				return Math.floor(Math.random() * max)
+			};
+
+			var majorSelector = getRandomInt(Object.keys(majorExercises).length);
+			var majorMuscle = Object.keys(majorExercises)[majorSelector];
+			var selectedMajor = majorExercises[majorMuscle];
+
+			var minorSelector = getRandomInt(Object.keys(minorExercises).length);
+			var minorMuscle = Object.keys(minorExercises)[minorSelector];
+			var selectedMinor = minorExercises[minorMuscle];
+
+			var majorExerciseGenerator = selectedMajor[getRandomInt(selectedMajor.length)];
+			var minorExerciseGenerator = selectedMinor[getRandomInt(selectedMinor.length)];
+
+			//Content
+			document.write(
+				"<h1>Workout Generator</h1>" + 
+				"<h2>What will you train today?</h2>" + 
+				"<p1>" + majorMuscle + "</p1><p2><br> and <br></p2><p1>" +minorMuscle + "</p1><p>" +
+				"<p2>Why not try these exercises:</p2><p>" +
+				"<p2>"+ majorExerciseGenerator +" & "+ minorExerciseGenerator +"</p2>"
+				);
+
+		</script>
+
+	</head>
+
+	<body>
+
+	</body>
+
+</html>
